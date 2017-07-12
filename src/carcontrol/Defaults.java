@@ -5,10 +5,10 @@ import java.io.Serializable;
 
 public class Defaults {
     
-    public static final Color mainBackGroundColor = new Color (0,100,100);
-    public static final Color fieldBackgroundColor = new Color(102,153,255);
-    public static final Color buttonBackgroundColor = new Color(102,153,255);
-    public static final String title = "Remote Controlled Car";
+    public static final Color MAINBACKGROUNDCOLOR = new Color (0,100,100);
+    public static final Color FIELDBACKGROUNDCOLOR = new Color(102,153,255);
+    public static final Color BUTTONBACKGROUNDCOLOR = new Color(102,153,255);
+    public static final String TITLE = "Remote Controlled Car";
 
     public enum Momentum {
         FORWARD, BACKWARD, RIGHT, LEFT, STOP
@@ -123,6 +123,33 @@ public class Defaults {
 
     }
 
+    
+    public static class CarMotion implements Serializable{
+        private int angle;
+        private int verticalMovement;
+        // For the future perhaps
+        private boolean soundHorn;
+        private boolean lights;
+
+        public int getAngle() {
+            return angle;
+        }
+
+        public void setAngle(int angle) {
+            this.angle = angle;
+        }
+
+        public int getVerticalMovement() {
+            return verticalMovement;
+        }
+
+        public void setVerticalMovement(int verticalMovement) {
+            this.verticalMovement = verticalMovement;
+        }
+        
+        
+        
+    }
     
     public static class CarStatus implements Serializable{
         private boolean forward = false;
