@@ -1,8 +1,14 @@
 package carcontrol;
 
+import java.awt.Color;
 import java.io.Serializable;
 
 public class Defaults {
+    
+    public static final Color mainBackGroundColor = new Color (0,100,100);
+    public static final Color fieldBackgroundColor = new Color(102,153,255);
+    public static final Color buttonBackgroundColor = new Color(102,153,255);
+    public static final String title = "Remote Controlled Car";
 
     public enum Momentum {
         FORWARD, BACKWARD, RIGHT, LEFT, STOP
