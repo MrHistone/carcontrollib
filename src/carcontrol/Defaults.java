@@ -4,10 +4,10 @@ import java.awt.Color;
 import java.io.Serializable;
 
 public class Defaults {
-    
-    public static final Color MAINBACKGROUNDCOLOR = new Color (0,100,100);
-    public static final Color FIELDBACKGROUNDCOLOR = new Color(102,153,255);
-    public static final Color BUTTONBACKGROUNDCOLOR = new Color(102,153,255);
+
+    public static final Color MAINBACKGROUNDCOLOR = new Color(0, 100, 100);
+    public static final Color FIELDBACKGROUNDCOLOR = new Color(102, 153, 255);
+    public static final Color BUTTONBACKGROUNDCOLOR = new Color(102, 153, 255);
     public static final String TITLE = "Remote Controlled Car";
 
     public enum Momentum {
@@ -123,8 +123,22 @@ public class Defaults {
 
     }
 
-    
-    public static class CarMotion implements Serializable{
+    public static class CarMotion implements Serializable {
+
+        /**
+         *
+         * @param angle
+         * @param verticalMovement
+         * @param soundHorn
+         * @param lights
+         */
+        public CarMotion(int angle, int verticalMovement, boolean soundHorn, boolean lights) {
+            this.angle = angle;
+            this.lights = lights;
+            this.soundHorn = soundHorn;
+            this.verticalMovement = verticalMovement;
+        }
+
         private int angle;
         private int verticalMovement;
         // For the future perhaps
@@ -146,16 +160,33 @@ public class Defaults {
         public void setVerticalMovement(int verticalMovement) {
             this.verticalMovement = verticalMovement;
         }
-        
-        
-        
+
+        public boolean isSoundHorn() {
+            return soundHorn;
+        }
+
+        public void setSoundHorn(boolean soundHorn) {
+            this.soundHorn = soundHorn;
+        }
+
+        public boolean isLights() {
+            return lights;
+        }
+
+        public void setLights(boolean lights) {
+            this.lights = lights;
+        }
+
     }
-    
-    public static class CarStatus implements Serializable{
+
+    public static class CarStatus implements Serializable {
+
         private boolean forward = false;
         private boolean backward = false;
         private boolean left = false;
         private boolean right = false;
+        private boolean lights = false;
+        private boolean horn = false;
 
         public boolean isForward() {
             return forward;
@@ -188,10 +219,26 @@ public class Defaults {
         public void setRight(boolean right) {
             this.right = right;
         }
+
+        public boolean isLights() {
+            return lights;
+        }
+
+        public void setLights(boolean lights) {
+            this.lights = lights;
+        }
+
+        public boolean isHorn() {
+            return horn;
+        }
+
+        public void setHorn(boolean horn) {
+            this.horn = horn;
+        }
+
+        
         
         
     }
-    
-    
-    
+
 }
